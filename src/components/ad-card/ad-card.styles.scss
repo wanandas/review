@@ -1,0 +1,54 @@
+.adcard-container {
+  width: 400px;
+  margin: 80px auto 120px;
+  background-color: #fff;
+  padding: 0 20px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.075);
+  text-align: center;
+  margin-right: 10em;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .avatar {
+    border-radius: 100px;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    margin: auto;
+    top: -60px;
+    box-shadow: 0 0 0 13px #f0f0f0;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 100px;
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+    }
+  }
+
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  h4 {
+    font-size: 19px;
+    color: #666;
+    letter-spacing: 1px;
+    margin: 15px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    color: #666;
+  }
+}

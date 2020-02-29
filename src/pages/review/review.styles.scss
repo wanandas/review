@@ -1,0 +1,12 @@
+$bp-md: 600px;
+$bp-lg: 800px;
+
+:root {
+  --font-sans: "Rubik", sans-serif;
+}
+.review-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
