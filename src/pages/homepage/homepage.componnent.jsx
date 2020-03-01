@@ -1,10 +1,37 @@
 import React from "react";
 import "./homepage.styles.scss";
 
-const HomepageComponent = () => (
-  <div className="homepage-container">
-    <h1>Homepage</h1>
-  </div>
-);
+class HomepageComponent extends React.Component {
+  // componentDidMount() {
+  //   data.forEach(function(obj) {
+  //     db.collection("review")
+  //       .add({
+  //         id: obj.id,
+  //         genres: obj.genres,
+  //         name: obj.name,
+  //         img: obj.img,
+  //         score: obj.score,
+  //         reason: obj.reason,
+  //         comment: obj.comment,
+  //         logline: obj.logline,
+  //         reviewer: obj.reviewer
+  //       })
+  //       .then(function(docRef) {
+  //         console.log("Document written with ID: ", docRef.id);
+  //       })
+  //       .catch(function(error) {
+  //         console.error("Error adding document: ", error);
+  //       });
+  //   });
+  // }
+
+  render() {
+    return (
+      <div className="homepage-container">
+        <h1>Homepage</h1>
+      </div>
+    );
+  }
+}
 
 export default HomepageComponent;
