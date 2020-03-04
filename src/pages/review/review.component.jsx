@@ -1,50 +1,31 @@
 import React from "react";
-import ReviewCard from "../../components/review-card/reviewCard.component";
-
 import "./review.styles.scss";
-import "./data";
-import { db } from "../../firebase/firebase.utils";
 
-class ReviewComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      card: []
-    };
-  }
-
-  async componentDidMount() {
-    const reviewRef = db.collectionGroup("review");
-    const newData = [];
-    await reviewRef
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          newData.push(doc.data());
-        });
-      })
-      .catch(err => {
-        console.log("Error getting documents", err);
-      });
-    this.setState({
-      card: newData
-    });
-
-    console.log(this.state.card);
-  }
-
-  render() {
-    let card = this.state.card.map(({ id, ...otherProps }) => {
-      return <ReviewCard key={id} {...otherProps} />;
-    });
-
-    return (
-      <div className="review-container">
-        <h1>Reivew</h1>
-        <div className="card-content">{card}</div>
+export const Review = props => {
+  const review = props.location.state;
+  console.log(review);
+  return (
+    <div className="review-contain">
+      <h1>{review.name}</h1>
+      <div className="contain">
+        <div>
+          <img className="review-in-img" src={`${review.img}`} alt="review" />
+        </div>
+        <div className="review-detail">
+          <div className="genres">GENRES : {`${review.genres}`} </div>
+          <div className="score">SCORE : {`${review.score}`} </div>
+          <div className="reason">
+            {review.reason.map(reason => {
+              return (
+                <div>
+                  {reason.reasonname} ({reason.reasonscore})
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    );
-  }
-}
-
-export default ReviewComponent;
+      <div className="commend">{review.comment}</div>
+    </div>
+  );
+};

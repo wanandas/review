@@ -1,0 +1,21 @@
+$bp-md: 600px;
+$bp-lg: 800px;
+
+:root {
+  --font-sans: "Rubik", sans-serif;
+}
+.review-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  .search-input {
+    border-radius: 5px;
+    border-right: 0px solid gainsboro;
+    font-size: 15px;
+    width: 425px;
+    padding: 16px;
+    margin: 40px;
+  }
+}
