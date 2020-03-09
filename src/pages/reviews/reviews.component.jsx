@@ -19,7 +19,6 @@ class ReviewsComponent extends React.Component {
       .then(snapshot => {
         snapshot.forEach(doc => {
           this.state.card.push(doc.data());
-
           this.setState({
             card: this.state.card
           });
