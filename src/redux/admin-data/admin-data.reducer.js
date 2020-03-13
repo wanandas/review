@@ -1,23 +1,10 @@
 import AdminActionTypes from "./admin-data.types";
-import { db } from "../../firebase/firebase.utils";
 
 const INTIAL_STATE = {
-  admin: [],
+  admin: null,
   isFetching: false,
   errorMessage: undefined
 };
-
-const renderReview = () => {
-  db.collection("admin")
-    .get()
-    .then(snapshot => {
-      snapshot.forEach(doc => {
-        INTIAL_STATE.admin.push(doc.data());
-      });
-    });
-};
-
-renderReview();
 
 const adminReducer = (state = INTIAL_STATE, action) => {
   switch (action.type) {
