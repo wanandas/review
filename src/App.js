@@ -7,8 +7,16 @@ import ReviewsComponent from "./pages/reviews/reviews.component";
 
 import Header from "./components/header/header.component";
 import { ReviewRoute } from "./pages/review/review-route.component";
+import Loginpage from "./pages/login/loginpage.component";
+
+import PrivateRoute from "./Route/PrivateRoute/priteRoute.component";
+import EditComponent from "./components/edit/edit.component";
 
 function App() {
+  const state = {
+    loggedIn: false
+  };
+
   return (
     <div>
       <Header />
@@ -17,6 +25,14 @@ function App() {
         <Route exact path="/about" component={AboutComponent} />
         <Route exact path="/review" component={ReviewsComponent} />
         <Route path="/review/item" component={ReviewRoute} />
+        <PrivateRoute
+          isLoggedIn={state.loggedIn}
+          path="/edit"
+          component={EditComponent}
+        />
+
+        <Route exact path="/login" component={Loginpage} />
+        <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
     </div>
   );

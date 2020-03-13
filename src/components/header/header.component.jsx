@@ -16,6 +16,9 @@ function Header() {
         <Link className="menu-item" to="/about">
           about
         </Link>
+        <Link className="menu-item" to="/login">
+          login
+        </Link>
       </ul>
     </div>
   );

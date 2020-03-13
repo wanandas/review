@@ -1,0 +1,7 @@
+const AdminActionTypes = {
+  FETCH_ADMIN_START: "FETCH_ADMIN_START",
+  FETCH_ADMIN_SUCCESS: "FETCH_ADMIN_SUCCESS",
+  FETCH_ADMIN_FAILURE: "FETCH_ADMIN_FAILURE"
+};
+
+export default AdminActionTypes;

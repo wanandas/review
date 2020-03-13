@@ -14,7 +14,7 @@ class ReviewsComponent extends React.Component {
   }
 
   renderReview() {
-    db.collectionGroup("review")
+    db.collection("review")
       .get()
       .then(snapshot => {
         snapshot.forEach(doc => {
@@ -42,7 +42,6 @@ class ReviewsComponent extends React.Component {
       card.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    console.log(this.state.card);
     return (
       <div className="review-container">
         <form>
