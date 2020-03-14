@@ -11,8 +11,6 @@ const AboutComponent = ({ admin, fetchCollectionsStart }) => {
   useEffect(() => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
-
-  console.log(admin);
   return (
     <div className="about-container">
       <h1>About Us</h1>

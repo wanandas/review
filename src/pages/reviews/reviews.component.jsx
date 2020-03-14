@@ -1,62 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./reviews.styles.scss";
-import { db } from "../../firebase/firebase.utils";
 import ReviewList from "../../components/review-list/review-list.component";
+import { createStructuredSelector } from "reselect";
+import { selectReviewForView } from "../../redux/review/review.selectors";
+import { connect } from "react-redux";
+import { fetchReviewStart } from "../../redux/review/review.action";
 
-class ReviewsComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      card: [],
-      search: ""
-    };
-  }
+const ReviewsComponent = ({ card, fetchReviewStart }) => {
+  const [search, setSearch] = useState("");
 
-  renderReview() {
-    db.collection("review")
-      .get()
-      .then(snapshot => {
-        snapshot.forEach(doc => {
-          this.state.card.push(doc.data());
-          this.setState({
-            card: this.state.card
-          });
-        });
-      });
-  }
-
-  handerChange = e => {
-    this.setState({
-      search: e.target.value
-    });
+  const handerChange = e => {
+    setSearch(e.target.value);
   };
 
-  componentDidMount() {
-    this.renderReview();
-  }
+  useEffect(() => {
+    fetchReviewStart();
+  }, [fetchReviewStart]);
 
-  render() {
-    const { card, search } = this.state;
-    const filteredCard = card.filter(card =>
-      card.name.toLowerCase().includes(search.toLowerCase())
-    );
+  const filteredCard = card.filter(card =>
+    card.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-    return (
-      <div className="review-container">
-        <form>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Anime name..."
-            onChange={this.handerChange}
-            value={this.state.search}
-          />
-        </form>
-        <ReviewList card={filteredCard} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="review-container">
+      <form>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Anime name..."
+          onChange={handerChange}
+          value={search}
+        />
+      </form>
+      <ReviewList card={filteredCard} />
+    </div>
+  );
+};
 
-export default ReviewsComponent;
+const mapDispatchToProps = dispatch => ({
+  fetchReviewStart: () => dispatch(fetchReviewStart())
+});
+
+const mapStateToProps = createStructuredSelector({
+  card: selectReviewForView
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsComponent);

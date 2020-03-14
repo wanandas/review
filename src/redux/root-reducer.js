@@ -3,6 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import adminReducer from "./admin-data/admin-data.reducer";
+import reviewReducer from "./review/review.reducer";
 
 const persistConfig = {
   key: "root",
@@ -10,7 +11,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  admin: adminReducer
+  admin: adminReducer,
+  review: reviewReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

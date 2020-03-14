@@ -1,0 +1,7 @@
+const ReviewActionTypes = {
+  FETCH_REVIEW_START: "FETCH_REVIEW_START",
+  FETCH_REVIEW_SUCCESS: "FETCH_REVIEW_SUCCESS",
+  FETCH_REVIEW_FAILURE: "FETCH_REVIEW_FAILURE"
+};
+
+export default ReviewActionTypes;

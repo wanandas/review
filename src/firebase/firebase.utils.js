@@ -28,4 +28,35 @@ export const converCollectionsSnapshotToMap = collections => {
   }, {});
 };
 
+export const converCollectionReviewSnapshotToMap = collections => {
+  const transformedReview = collections.docs.map(doc => {
+    const {
+      comment,
+      genres,
+      img,
+      logline,
+      name,
+      reason,
+      reviewer,
+      score
+    } = doc.data();
+
+    return {
+      id: doc.id,
+      comment,
+      genres,
+      img,
+      logline,
+      name,
+      reason,
+      reviewer,
+      score
+    };
+  });
+  return transformedReview.reduce((accumelator, collection) => {
+    accumelator[collection.name] = collection;
+    return accumelator;
+  }, {});
+};
+
 export default firebase;
