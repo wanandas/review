@@ -17,6 +17,13 @@ function App() {
         <Route exact path="/about" component={AboutComponent} />
         <Route exact path="/review" component={ReviewsComponent} />
         <Route path="/review/item" component={ReviewRoute} />
+        <Route
+          path="/external"
+          component={() => {
+            window.location = "https://www.google.com";
+            return null;
+          }}
+        />
 
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>

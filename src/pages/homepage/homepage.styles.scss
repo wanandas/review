@@ -1,4 +1,27 @@
 .homepage-container {
+  padding: 30px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  .btn-view {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .btn-item {
+      border: 1px solid #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #eee;
+      padding: 5px;
+      margin: 5px;
+      transition: all 0.5s;
+
+      &:hover {
+        color: #111;
+        background: #eee;
+      }
+    }
+  }
 }

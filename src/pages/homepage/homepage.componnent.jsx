@@ -1,33 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./homepage.styles.scss";
 
-class HomepageComponent extends React.Component {
-  // componentDidMount() {
-  //   data.forEach(function(obj) {
-  //     db.collection("review")
-  //       .add({
-  //         id: obj.id,
-  //         genres: obj.genres,
-  //         name: obj.name,
-  //         img: obj.img,
-  //         score: obj.score,
-  //         reason: obj.reason,
-  //         comment: obj.comment,
-  //         logline: obj.logline,
-  //         reviewer: obj.reviewer
-  //       })
-  //       .then(function(docRef) {
-  //         console.log("Document written with ID: ", docRef.id);
-  //       })
-  //       .catch(function(error) {
-  //         console.error("Error adding document: ", error);
-  //       });
-  //   });
-  // }
-
-  render() {
-    return <div className="homepage-container"></div>;
-  }
-}
+const HomepageComponent = () => {
+  return (
+    <div className="homepage-container">
+      <h2>Welcome to M.A XSION</h2>
+      <div className="btn-view">
+        <Link className="btn-item" to="/review">
+          View Review Anime
+        </Link>
+        <Link className="btn-item" to="/external">
+          For Admin
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default HomepageComponent;
