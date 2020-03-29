@@ -20,7 +20,7 @@ function App() {
         <Route
           path="/external"
           component={() => {
-            window.location = "https://www.google.com";
+            window.location = "https://review-toon.firebaseapp.com/";
             return null;
           }}
         />

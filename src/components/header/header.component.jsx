@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <div className="navbar">
-      Anime Collection
+      M.A XSION
       <ul className="menu">
         <Link className="menu-item" to="/">
           home

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "review-toon"
+  },
+  "targets": {
+    "review-toon": {
+      "hosting": {
+        "ma-xsion": [
+          "ma-xsion"
+        ]
+      }
+    }
+  }
+}
